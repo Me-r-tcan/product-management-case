@@ -8,6 +8,8 @@ import {
 } from 'react-router-dom';
 
 import Login from '../pages/Login';
+import ProductList from '../pages/ProductList';
+import ProductDetail from '../pages/ProductDetail';
 import { useUser } from '../contexts/UserContext';
 
 function CustomRoutes() {
@@ -27,12 +29,26 @@ function CustomRoutes() {
     <Router>
       <Routes>
         <Route
-          path='/login'
+          index
+          path='/'
           element={user ? <Navigate to='/products' /> : <Login />}
         />
 
+        <Route
+          path='/products'
+          element={
+            user ? (
+              <ProductList username={user.username} />
+            ) : (
+              <Navigate to='/' />
+            )
+          }
+        />
 
-        <Route index element={<Navigate to='/login' />} />
+        <Route
+          path='/products/:productId'
+          element={user ? <ProductDetail /> : <Navigate to='/' />}
+        />
       </Routes>
     </Router>
   );
