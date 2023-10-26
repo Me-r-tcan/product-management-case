@@ -1,3 +1,4 @@
 {
-  "db": "mongodb://127.0.0.1/soho"
+  "db": "mongodb://127.0.0.1/soho",
+  "jwtPrivateKey": "myPrivateKey"
 }
