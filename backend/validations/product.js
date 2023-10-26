@@ -16,7 +16,6 @@ function productUpdateValidation(product) {
     name: Joi.string().min(2).max(255),
     description: Joi.string().allow(''),
     code: Joi.string().min(2).max(255),
-    quantity: Joi.number().min(0),
   });
 
   return schema.validate(product);

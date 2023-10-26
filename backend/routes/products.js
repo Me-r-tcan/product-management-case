@@ -79,13 +79,13 @@ router.post(
         .status(404)
         .send({ errorMessage: 'The product with the given ID was not found.' });
 
-    if (entryExitAmount + product.quantity < 0)
+    if (parseInt(entryExitAmount) + product.quantity < 0)
       return res
         .status(404)
         .send({ errorMessage: 'Insufficient stock quantity.' });
 
     product.movements.push(req.body);
-    product.quantity += entryExitAmount;
+    product.quantity += parseInt(entryExitAmount);
 
     product = await product.save();
 
