@@ -263,7 +263,7 @@ const ProductDetail = () => {
                   variant='contained'
                   color='secondary'
                 >
-                  Kapat
+                  Close
                 </Button>
 
                 <Button
